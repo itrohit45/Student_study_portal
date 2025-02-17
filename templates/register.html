@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content%}
+
+
+       <div>
+        <center>
+            <h1>SignUp</h1>
+            <br/>
+            <br/>
+
+            {% if messages %}
+            <div id="message-popup">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{message }}
+                </div>
+                {% endfor %}
+
+            </div>
+            {% endif %}
+
+    <div  class='container mt-5 shadow-lg border border-success' style="width: 380px;  border-radius: 10px; height: 300px; background: linear-gradient( rgb(248, 168, 182), rgb(154, 154, 250));">
+            <form method="post" action="/signup">
+                {% csrf_token %}
+            <div class="mb-3">
+<label  class="form-label">Username</label>
+<input type="text" class="form-control" id="username" aria-describedby="username" name="username" required/>
+
+</div>
+<div class="mb-3">
+<label class="form-label">Email address</label>
+<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required/>
+
+</div>
+<div class="mb-3">
+<label class="form-label">Password</label>
+<input type="password" class="form-control" id="exampleInputPassword1" name="password" required/>
+</div>
+<button type="submit" class="btn btn-primary">Signup</button>
+</form>
+</div>
+        </center>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            console.log("JavaScript is loaded");
+
+            setTimeout(() => {
+                const popup = document.getElementById('message-popup');
+                if (popup){
+                    popup.style.display = 'none';
+                }            }, 5000);
+        });
+    </script>
+
+
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content%}
+
+
+<br><br><br><center>
+<h1>Login</h1>
+<div class='container mt-5 shadow-lg border border-success' style="width: 380px;  border-radius: 10px; height: 230px; background: linear-gradient( rgb(248, 168, 182), rgb(154, 154, 250));">
+<form method="post" action="/">
+  {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">username</label>
+      <input type="text" class="form-control" id="username" aria-describedby="username" name="username" required>
+
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+</center>
+
+
+{% endblock content %}
+
+
+
+
